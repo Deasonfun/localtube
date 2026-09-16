@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "LocalTube Redirect",
+  "version": "0.1.0",
+  "description": "Redirect supported YouTube video pages to the locally running LocalTube backend.",
+  "permissions": [
+    "tabs",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://m.youtube.com/*",
+    "http://127.0.0.1:6969/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": [
+      "config.js",
+      "url.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "localtube@localhost",
+      "strict_min_version": "109.0"
+    }
+  }
+}

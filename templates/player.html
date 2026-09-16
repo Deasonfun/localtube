@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} · LocalTube</title>
+  <script src="/static/theme.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body data-session-id="{{SESSION_ID}}">
+  <div class="blob blob--sage" aria-hidden="true"></div>
+  <div class="blob blob--rose" aria-hidden="true"></div>
+  <div class="blob blob--peach" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="card topbar">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <h1>LocalTube</h1>
+     </h1> </div>
+      <div class="topbar__actions">
+        <span class="pill"><span class="pill__dot" aria-hidden="true"></span><strong id="status">Queued</strong></span>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="card player-card">
+      <div class="player-shell">
+        <video id="player" controls preload="metadata" poster="{{THUMBNAIL}}"></video>
+        <div id="preparing">
+          <span class="eyebrow">LocalTube</span>
+          <span id="preparing-label">Preparing video…</span>
+          <progress id="download-progress" max="100" aria-label="Download progress"></progress>
+          <span id="download-percent" class="big-number" aria-live="polite"></span>
+          <div class="progress-meta">
+            <span id="download-size"></span>
+            <span id="download-speed"></span>
+            <span id="download-eta"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="card stat stat--rose">
+        <span class="stat__label">Now playing</span>
+        <h2 class="stat__title">{{TITLE}}</h2>
+      </article>
+      <article class="card stat stat--sage">
+        <span class="stat__label">Duration</span>
+        <span class="big-number">{{DURATION}}</span>
+      </article>
+      <article class="card stat stat--peach description-card">
+        <span class="stat__label">Description</span>
+        <input class="description-card__toggle" type="checkbox" id="description-toggle">
+        <p class="stat__description">{{DESCRIPTION}}</p>
+        <label class="description-card__more" for="description-toggle">
+          <span class="more">Show more</span>
+          <span class="less">Show less</span>
+        </label>
+      </article>
+    </section>
+
+    <p id="error" role="alert"></p>
+  </main>
+  <script src="/static/player.js" defer></script>
+</body>
+</html>

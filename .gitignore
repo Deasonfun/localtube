@@ -25,9 +25,3 @@ target
 !/cache/.gitkeep
 /media/*
 !/media/.gitkeep
-
-# yt-dlp cookie jar (session credentials)
-/firefox
-
-# design reference mockup
-/e2a65a820daeda96f74d07ea7ab45e6e.jpg
